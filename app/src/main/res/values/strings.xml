@@ -1,0 +1,10 @@
+<resources>
+    <string name="hello">Hello World, WidetDemo!</string>
+    <string name="app_name">DaysToWorldCup</string>
+    <string name="trivia1">邓易林</string>
+    <string name="trivia2">毛同生</string>
+    <string name="trivia3">朱琪</string>
+    <string name="trivia4">周鹏</string>
+    <string name="trivia5">倪远杰</string>
+    <string name="trivia6">杨艺琳</string>
+</resources>
