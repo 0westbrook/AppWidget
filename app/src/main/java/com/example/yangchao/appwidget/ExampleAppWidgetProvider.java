@@ -114,8 +114,10 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider{
             Uri data = intent.getData();
             int buttonId = Integer.parseInt(data.getSchemeSpecificPart());
             if (buttonId == BUTTON_SHOW) {
-                Log.i("TAG", "Button wifi clicked");
-                Toast.makeText(context, "Button Clicked", Toast.LENGTH_SHORT).show();
+//                Log.i("TAG", "Button wifi clicked");
+//                Toast.makeText(context, "Button Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(ACTION_UPDATE_ALL);
+                context.sendBroadcast(intent1);
             }
         } 
         super.onReceive(context, intent);
@@ -148,6 +150,7 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider{
             remoteView.setOnClickPendingIntent(R.id.btn_show, getPendingIntent(context,
                     BUTTON_SHOW));
 
+
             // 更新 widget
             appWidgetManager.updateAppWidget(appID, remoteView);
         }
@@ -158,6 +161,7 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider{
         intent.setClass(context, ExampleAppWidgetProvider.class);
         intent.addCategory(Intent.CATEGORY_ALTERNATIVE);
         intent.setData(Uri.parse("custom:" + buttonId));
+//        Intent intent1 = new Intent(ACTION_UPDATE_ALL);
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0 );
         return pi;
     }
